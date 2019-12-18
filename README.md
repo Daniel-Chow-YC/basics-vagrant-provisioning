@@ -70,7 +70,22 @@ The test for posts will fail ( as expected ) if the database has not been correc
   - config.vm.synced_folder - How you access files from your local machine/computer
   on the VM (syncing your local folder with your vagrant box folder)
   - config.vm.provision - what we want to setup (automating the setup process)
+  -eg:
+ ````
+ Vagrant.configure("2") do |config|
 
+   config.vm.box = "ubuntu/xenial64"
+   config.vm.network "private_network", ip: "192.168.10.100"
+   config.hostsupdater.aliases = ["development.local"]
+
+   config.vm.synced_folder "app", "/app"
+
+   config.vm.provision "shell", path: "environment/provision.sh"
+
+
+ end
+
+ ````
 - Use the xenial64 machine by inputting:```` config.vm.box = "ubuntu/xenial64"````
 into the vagrant folder
 - sync your folders by inputting:```` config.vm.synced_folder "app", "/app"````
