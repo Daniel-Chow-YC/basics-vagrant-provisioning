@@ -93,3 +93,4 @@ npm start
 - In the vagrant file input:
 config.vm.provision "shell", path: "environment/provision.sh"
 ````
+- Run ````vagrant up```` to run the app.

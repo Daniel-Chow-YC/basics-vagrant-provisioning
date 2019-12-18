@@ -62,7 +62,7 @@ The test for posts will fail ( as expected ) if the database has not been correc
 - Download vagrant from vagrantup.com
 - Download virtualbox from virualbox.org
 - Make a new directory and move app to this directory
-- From your terminal run vagrant init to create a vagrant file in this new directory
+- From your terminal run ````vagrant init```` to create a vagrant file in this new directory
 - In this vagrant file you can then configure the settings for your virtual environment. In general:
   - config.vm.box - operating system
   - config.vm.network - How your host sees your box
@@ -71,14 +71,15 @@ The test for posts will fail ( as expected ) if the database has not been correc
   on the VM (syncing your local folder with your vagrant box folder)
   - config.vm.provision - what we want to setup (automating the setup process)
 
-- Use the xenial64 machine by inputting: config.vm.box = "ubuntu/xenial64"
+- Use the xenial64 machine by inputting:```` config.vm.box = "ubuntu/xenial64"````
 into the vagrant folder
-- sync your folders by inputting: config.vm.synced_folder "app", "/app"
+- sync your folders by inputting:```` config.vm.synced_folder "app", "/app"````
 into the vagrant folder
-- Spin up the VM (create the VM) by running vagrant up in the terminal
-- SSH into the box (make a connection to the VM) by running vagrant ssh
+- Spin up the VM (create the VM) by running ````vagrant up```` in the terminal
+- SSH into the box (make a connection to the VM) by running ````vagrant ssh````
 - create a provision.sh file in the environment folder so that you can provision the machine
 - input this into the provision.sh file:
+````
 #!/bin/bash
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -91,3 +92,5 @@ npm install
 npm start
 - In the vagrant file input:
 config.vm.provision "shell", path: "environment/provision.sh"
+````
+- Run ````vagrant up```` to run the app.
