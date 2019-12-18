@@ -70,7 +70,7 @@ The test for posts will fail ( as expected ) if the database has not been correc
   - config.vm.synced_folder - How you access files from your local machine/computer
   on the VM (syncing your local folder with your vagrant box folder)
   - config.vm.provision - what we want to setup (automating the setup process)
-  -eg:
+  - eg:
  ````
  Vagrant.configure("2") do |config|
 
